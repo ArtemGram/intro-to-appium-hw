@@ -26,13 +26,13 @@ public class SampleAppTest {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         String platform = getenv("APPIUM_DRIVER");
         platform = platform == null ? "ANDROID" : platform.toUpperCase();
-        String path = System.getProperty("user.dir");
 
         if (platform.equals("ANDROID")) {
             capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
             capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "AndroidEmulator");
             capabilities.setCapability(MobileCapabilityType.UDID, "emulator-5554");
-            capabilities.setCapability(MobileCapabilityType.APP, path + "/Users/artemgramushnyak/IdeaProjects/intro-to-appium-hw/ApiDemos-debug.apk");
+            capabilities.setCapability(MobileCapabilityType.APP,  "/Users/artemgramushnyak/IdeaProjects/intro-to-appium-hw/ApiDemos-debug.apk");
+
             server = new AppiumServiceBuilder().usingAnyFreePort().build();
             server.start();
             driver = new AndroidDriver<>(server, capabilities);
@@ -44,7 +44,7 @@ public class SampleAppTest {
             capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCuiTest");
             capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone SE (2nd generation) (13.4.1)");
             capabilities.setCapability(MobileCapabilityType.UDID, "566EF32E-CF78-4233-B48D-ABB8D644F527");
-            capabilities.setCapability(MobileCapabilityType.APP, path + "Users/artemgramushnyak/IdeaProjects/intro-to-appium-hw/TestApp.app.zip");
+            capabilities.setCapability(MobileCapabilityType.APP,  "/Users/artemgramushnyak/IdeaProjects/intro-to-appium-hw/TestApp.app.zip");
 
             server = new AppiumServiceBuilder().usingAnyFreePort().build();
             server.start();
